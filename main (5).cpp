@@ -34,7 +34,7 @@ int main() {
   int max = findBiggest(numbers);
   while(place <= max){
     //radix stuff
-    vector<int> digits = createDigitArray(numbers, place);
+    vector<int> digits = createDigitVector(numbers, place);
     numbers = update(numbers, place, digits);
     place *= 10;
   }
@@ -55,7 +55,7 @@ int findBiggest(vector<Car> numbers){
   return biggest;
 }
 
-//Creating the digit array 
+//Creating the digit Vector
 vector<int> createDigitVector(vector<Car>arr, int place){
   vector<int> digits = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
   for(int i = 0; i < arr.size(); i++){
@@ -71,7 +71,7 @@ vector<int> createDigitVector(vector<Car>arr, int place){
   }
   return digits;
 }
-//Updating the array to a "better" version or/ "best" version
+//Updating the vector to a "better" version or/ "best" version
 vector<Car> update(vector<Car> arr, int place, vector<int> digits){
   vector<Car> output;
   output.resize(arr.size());
