@@ -10,7 +10,7 @@ struct Car{
   int miles; 
 };
 
-vector<int> createDigitArray(vector<Car> arr, int place);
+vector<int> createDigitVector(vector<Car> arr, int place);
 int findBiggest(vector<Car> numbers);
 vector<Car> update(vector<Car> arr, int place, vector<int> digits);
 vector<Car> numbers = {Car{"Cheverolet","Colorado", 25784},
@@ -44,7 +44,7 @@ int main() {
 
 }
 
-//Finding biggest number of array
+//Finding biggest number of vector
 int findBiggest(vector<Car> numbers){
   int biggest = INT_MIN;
   for(int i = 0; i < numbers.size(); i++){
@@ -56,7 +56,7 @@ int findBiggest(vector<Car> numbers){
 }
 
 //Creating the digit array 
-vector<int> createDigitArray(vector<Car>arr, int place){
+vector<int> createDigitVector(vector<Car>arr, int place){
   vector<int> digits = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
   for(int i = 0; i < arr.size(); i++){
     //Calculate the {place}th digit for each value 
@@ -71,11 +71,10 @@ vector<int> createDigitArray(vector<Car>arr, int place){
   }
   return digits;
 }
-//TODO: fix me...Updating the array to a "better" version or/ "best" version
+//Updating the array to a "better" version or/ "best" version
 vector<Car> update(vector<Car> arr, int place, vector<int> digits){
   vector<Car> output;
   output.resize(arr.size());
-  //Explain for loop
   for(int i = (arr.size() - 1); i >= 0; i--){
     int temp = (arr[i].miles/ place)% 10;
     digits[temp]--;
